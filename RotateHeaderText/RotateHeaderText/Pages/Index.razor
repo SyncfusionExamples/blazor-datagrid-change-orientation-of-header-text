@@ -7,15 +7,14 @@
     <GridEvents DataBound="DataBound" Created="Created" TValue="Order"></GridEvents>
     <GridColumns>
         <GridColumn Field=@nameof(Order.OrderID) HeaderText="Order ID" TextAlign="TextAlign.Center" Width="120"></GridColumn>
-        <GridColumn Field=@nameof(Order.CustomerID) HeaderText="Customer Name" TextAlign="TextAlign.Center" CustomAttributes="@(new Dictionary<string, object>(){ { "class", "customerclass" }})" Width="150"></GridColumn>
+        <GridColumn Field=@nameof(Order.CustomerID) HeaderText="Customer Name" TextAlign="TextAlign.Center" CustomAttributes="@(new Dictionary<string, object>(){ { "class", "textorientationclass" }})" Width="150"></GridColumn>
         <GridColumn Field=@nameof(Order.OrderDate) HeaderText="Order Date" Format="d" Type="ColumnType.Date" TextAlign="TextAlign.Center" Width="130"></GridColumn>
         <GridColumn Field=@nameof(Order.Freight) HeaderText="Freight" Format="C2" TextAlign="TextAlign.Center" Width="120"></GridColumn>
     </GridColumns>
 </SfGrid>
 <style>
-  
-    .e-grid .e-columnheader .e-headercell.customerclass .e-headercelldiv {     /*Rotate a particular headertext*/
-        transform: rotate(90deg);
+    .e-grid .e-columnheader .e-headercell.textorientationclass .e-headercelldiv { 
+        transform: rotate(90deg);      
     }
 </style>
 @code{
@@ -27,7 +26,7 @@
     }
     public void DataBound()
     {
-        if (InitialRender)          //Call the JS method by checking for initial Grid rendering
+        if (InitialRender) //Call the JS method by checking for initial Grid rendering
         {
             InitialRender = false;
             IJSRuntime.InvokeAsync<object>("setHeaderHeight");
@@ -43,7 +42,6 @@
             OrderDate = DateTime.Now.AddDays(-x),
         }).ToList();
     }
-
     public class Order
     {
         public int? OrderID { get; set; }

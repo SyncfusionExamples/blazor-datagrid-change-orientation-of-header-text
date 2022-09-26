@@ -1,7 +1,7 @@
 ﻿function setHeaderHeight(args) {
-    var textWidth = document.querySelector(".e-headercell > div").scrollWidth; // obtain the width of the headerText content.
-    var headerCell = document.querySelectorAll(".e-headercell");
-    for (var i = 0; i < headerCell.length; i++) {
-        (headerCell.item(i)).style.height = textWidth + 'px'; // assign the obtained textWidth as the height of the headerCell.
+    var textWidth = document.querySelector(".textorientationclass > div").scrollWidth; // Obtain the width of the headerText content.
+    var header = document.querySelectorAll(".e-columnheader");
+    for (var i = 0; i < header.length; i++) {
+        (header.item(i)).style.height = textWidth + 'px'; // Assign the obtained textWidth as the height of the column header.
     }
 }
